@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Definición de la codificación de caracteres del documento (UTF-8) -->
+    <meta charset="UTF-8">
+    
+    <!-- Asegura que la página sea completamente responsiva en dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título de la página que aparece en la pestaña del navegador -->
+    <title>Panel de Administración</title>
+    
+    <!-- Enlace a una hoja de estilos externa para cargar los íconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Estilo global para el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif; /* Define la fuente principal */
+            margin: 0; /* Elimina los márgenes por defecto */
+            padding: 0; /* Elimina el relleno por defecto */
+            box-sizing: border-box; /* Hace que el padding y el borde no afecten el tamaño total de los elementos */
+        }
+
+        /* Estilo para el encabezado */
+        header {
+            background-color: #333; /* Color de fondo oscuro */
+            color: white; /* Color de texto blanco */
+            padding: 15px; /* Relleno alrededor del texto */
+            text-align: center; /* Alineación del texto al centro */
+        }
+
+        /* Estilo para la barra de navegación */
+        nav ul {
+            list-style: none; /* Elimina los puntos de la lista */
+            padding: 0; /* Elimina el padding por defecto */
+            margin: 0; /* Elimina el margen por defecto */
+            display: flex; /* Flexbox para distribuir los elementos horizontalmente */
+            justify-content: center; /* Centra los elementos de la lista */
+            background-color: #444; /* Fondo gris para la barra de navegación */
+        }
+
+        /* Estilo para cada item en la lista de navegación */
+        nav ul li {
+            margin: 0 20px; /* Añade un espacio entre los elementos */
+        }
+
+        /* Estilo para los enlaces de la barra de navegación */
+        nav ul li a {
+            color: white; /* Color de texto blanco */
+            text-decoration: none; /* Elimina la subrayado */
+            font-size: 16px; /* Tamaño de fuente */
+            padding: 10px 20px; /* Relleno dentro de los enlaces */
+            display: block; /* Hace que el enlace ocupe todo el bloque de la lista */
+        }
+
+        /* Estilo para cuando el usuario pasa el cursor sobre el enlace */
+        nav ul li a:hover {
+            background-color: #555; /* Fondo más claro en hover */
+        }
+
+        /* Estilo para el contenedor principal que divide la página en dos secciones */
+        .container {
+            display: flex; /* Flexbox para distribuir la barra lateral y el contenido principal */
+            height: calc(100vh - 60px); /* La altura del contenedor es el 100% de la altura de la ventana, menos la altura del encabezado */
+        }
+
+        /* Estilo para la barra lateral */
+        .sidebar {
+            width: 250px; /* Ancho fijo de la barra lateral */
+            background-color: #f4f4f4; /* Fondo gris claro para la barra lateral */
+            padding: 20px; /* Relleno dentro de la barra lateral */
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra ligera a la derecha de la barra lateral */
+        }
+
+        /* Estilo para los encabezados dentro de la barra lateral */
+        .sidebar h3 {
+            margin-top: 0; /* Elimina el margen superior */
+        }
+
+        /* Estilo para los campos de entrada en la barra lateral */
+        .sidebar input {
+            width: 100%; /* Hace que los inputs ocupen todo el ancho disponible */
+            padding: 8px; /* Relleno dentro de los inputs */
+            margin: 5px 0; /* Márgenes entre los inputs */
+            border: 1px solid #ccc; /* Borde gris claro */
+            border-radius: 4px; /* Bordes redondeados */
+        }
+
+        /* Estilo para el botón de aplicar filtros */
+        .sidebar button {
+            width: 100%; /* El botón ocupa todo el ancho disponible */
+            padding: 10px; /* Relleno dentro del botón */
+            background-color: #333; /* Fondo oscuro para el botón */
+            color: white; /* Texto blanco en el botón */
+            border: none; /* Elimina el borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Muestra el cursor de "manito" cuando pasa sobre el botón */
+        }
+
+        /* Estilo para el botón cuando se pasa el cursor por encima */
+        .sidebar button:hover {
+            background-color: #555; /* Fondo más claro en hover */
+        }
+
+        /* Estilo para el contenido principal */
+        .main-content {
+            flex-grow: 1; /* El contenido principal ocupa todo el espacio restante */
+            padding: 20px; /* Relleno dentro del área de contenido */
+            overflow-y: scroll; /* Permite desplazamiento vertical si el contenido es demasiado largo */
+        }
+
+        /* Estilo para cada tarjeta de producto */
+        .product-card {
+            border: 1px solid #ddd; /* Borde gris claro */
+            padding: 15px; /* Relleno dentro de la tarjeta */
+            margin-bottom: 20px; /* Espacio debajo de cada tarjeta */
+            border-radius: 5px; /* Bordes redondeados */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera alrededor de la tarjeta */
+        }
+
+        /* Estilo para las imágenes dentro de las tarjetas de producto */
+        .product-card img {
+            max-width: 100%; /* Las imágenes no exceden el ancho de la tarjeta */
+            border-radius: 5px; /* Bordes redondeados para las imágenes */
+        }
+
+        /* Estilo para los títulos dentro de las tarjetas de producto */
+        .product-card h4 {
+            margin: 10px 0; /* Márgenes alrededor del título */
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado principal de la página -->
+    <header>
+        <h1>Panel de Administración</h1> <!-- Título principal -->
+    </header>
+    
+    <!-- Barra de navegación superior -->
+    <nav>
+        <ul>
+            <li><a href="#">Tienda</a></li>
+            <li><a href="#">Productos</a></li>
+            <li><a href="#">Puntos de venta</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Carrito</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenedor principal que divide la página en barra lateral y contenido -->
+    <div class="container">
+        <!-- Barra lateral con filtros de productos -->
+        <aside class="sidebar">
+            <h3>Filtros de Productos</h3> <!-- Título para los filtros -->
+            <input type="text" placeholder="Buscar producto..."> <!-- Campo de búsqueda -->
+            <input type="number" placeholder="Precio mínimo" min="0"> <!-- Campo de precio mínimo -->
+            <input type="number" placeholder="Precio máximo" min="0"> <!-- Campo de precio máximo -->
+            <button>Aplicar Filtros</button> <!-- Botón para aplicar los filtros -->
+        </aside>
+
+        <!-- Contenido principal con las tarjetas de producto -->
+        <div class="main-content">
+            <!-- Cada tarjeta de producto tiene imagen, título, descripción y precio -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" alt="Producto 1">
+                <h4>Producto 1</h4>
+                <p>Descripción del producto 1</p>
+                <p><strong>Precio: $50</strong></p>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" alt="Producto 2">
+                <h4>Producto 2</h4>
+                <p>Descripción del producto 2</p>
+                <p><strong>Precio: $80</strong></p>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" alt="Producto 3">
+                <h4>Producto 3</h4>
+                <p>Descripción del producto 3</p>
+                <p><strong>Precio: $120</strong></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
