@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Definir el tipo de codificación de caracteres para la página -->
+    <meta charset="UTF-8">
+    
+    <!-- Permitir que la página sea responsiva (se ajuste a diferentes tamaños de pantalla) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título de la página que aparece en la pestaña del navegador -->
+    <title>Plataforma de Servicios - Lencería de Muebles</title>
+
+    <style>
+        /* Estilos básicos para la página */
+        body {
+            font-family: Arial, sans-serif; /* Establece la fuente para todo el cuerpo de la página */
+            margin: 0; /* Elimina el margen predeterminado */
+            padding: 0; /* Elimina el padding predeterminado */
+            background-color: #f4f4f4; /* Fondo gris claro para el cuerpo */
+        }
+
+        /* Estilos para el header (cabecera) */
+        header {
+            background-color: #333; /* Fondo oscuro para la cabecera */
+            color: #fff; /* Texto blanco */
+            padding: 20px 0; /* Relleno arriba y abajo */
+            text-align: center; /* Centra el texto en la cabecera */
+            width: 100%; /* Asegura que la cabecera ocupe todo el ancho */
+            box-sizing: border-box; /* Incluye el padding en el tamaño total */
+        }
+
+        /* Estilos para el menú de navegación dentro de la cabecera */
+        header nav ul {
+            list-style-type: none; /* Elimina los puntos de la lista */
+            padding: 0; /* Elimina el padding */
+        }
+
+        header nav ul li {
+            display: inline; /* Los elementos de la lista se muestran en línea */
+            margin: 0 15px; /* Espacio entre los elementos */
+        }
+
+        header nav ul li a {
+            color: white; /* Enlaces con color blanco */
+            text-decoration: none; /* Elimina el subrayado de los enlaces */
+            font-weight: bold; /* Los enlaces en negrita */
+        }
+
+        /* Sección de Lencería de Muebles */
+        #lenceria {
+            padding: 50px 20px; /* Relleno interno para la sección */
+            text-align: center; /* Centra el contenido dentro de la sección */
+            background-color: #fff; /* Fondo blanco para la sección */
+        }
+
+        /* Estilo para el título de la sección */
+        #lenceria h2 {
+            font-size: 2.5em; /* Título grande */
+            margin-bottom: 20px; /* Espacio debajo del título */
+            color: #333; /* Color oscuro para el título */
+        }
+
+        /* Contenedor para los productos de lencería */
+        .lenceria-container {
+            display: flex; /* Utiliza Flexbox para distribuir los elementos */
+            justify-content: space-around; /* Distribuye los elementos con espacio entre ellos */
+            flex-wrap: wrap; /* Permite que los elementos se acomoden en nuevas filas cuando sea necesario */
+            gap: 20px; /* Espacio entre los elementos */
+            margin-top: 30px; /* Espacio superior */
+        }
+
+        /* Estilo para cada tarjeta de producto */
+        .lenceria-card {
+            width: 30%; /* Cada tarjeta ocupa el 30% del ancho disponible */
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px; /* Bordes redondeados */
+            overflow: hidden; /* Oculta cualquier contenido fuera de los bordes */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor de cada tarjeta */
+            transition: transform 0.3s ease-in-out; /* Transición suave al pasar el ratón */
+        }
+
+        /* Efecto de hover: al pasar el ratón, la tarjeta se desplaza hacia arriba */
+        .lenceria-card:hover {
+            transform: translateY(-10px); /* Mueve la tarjeta hacia arriba */
+        }
+
+        /* Estilo para las imágenes dentro de las tarjetas de producto */
+        .lenceria-img {
+            width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+            height: 200px; /* Altura fija para las imágenes */
+            object-fit: cover; /* La imagen cubre toda el área de la tarjeta sin distorsionarse */
+            border-bottom: 2px solid #eee; /* Línea sutil debajo de la imagen */
+        }
+
+        /* Estilo para los títulos de los productos */
+        .lenceria-card h3 {
+            font-size: 1.8em; /* Títulos grandes */
+            margin: 15px 0; /* Espacio arriba y abajo del título */
+            color: #333; /* Color oscuro para los títulos */
+        }
+
+        /* Estilo para la descripción de cada producto */
+        .lenceria-card p {
+            font-size: 1em; /* Tamaño de texto normal */
+            color: #666; /* Color gris para la descripción */
+            padding: 0 15px; /* Espaciado lateral */
+            margin-bottom: 20px; /* Espacio debajo de la descripción */
+        }
+
+        /* Estilo para los botones de llamada a la acción */
+        .cta-button {
+            display: inline-block; /* Muestra el botón en línea */
+            background-color: #4CAF50; /* Fondo verde */
+            color: white; /* Texto blanco */
+            padding: 12px 25px; /* Relleno interno */
+            font-weight: bold; /* El texto en negrita */
+            text-decoration: none; /* Elimina el subrayado */
+            border-radius: 5px; /* Bordes redondeados */
+            margin-bottom: 15px; /* Espacio debajo del botón */
+            transition: background-color 0.3s; /* Transición suave para el cambio de color */
+        }
+
+        /* Efecto de hover para el botón: cambia el color al pasar el ratón */
+        .cta-button:hover {
+            background-color: #45a049; /* Cambia a un verde más oscuro */
+        }
+
+        /* Estilo para el pie de página (footer) */
+        footer {
+            background-color: #333; /* Fondo oscuro para el pie de página */
+            color: white; /* Texto blanco */
+            padding: 10px 0; /* Relleno arriba y abajo */
+            text-align: center; /* Centra el texto */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabecera de la página -->
+    <header>
+        <div class="logo">
+            <h1>Plataforma de Servicios</h1> <!-- Título principal -->
+            <p>Servicios de limpieza y lencería de muebles</p> <!-- Descripción breve del servicio -->
+        </div>
+        <!-- Menú de navegación -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="testimonios.html">Testimonios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="inicio de sesion y registro.html">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de Lencería para Muebles -->
+    <section id="lenceria">
+        <h2>Lencería para Muebles</h2> <!-- Título de la sección -->
+        <div class="lenceria-container">
+            <!-- Tarjeta de producto 1: Funda para Sofá -->
+            <div class="lenceria-card">
+                <img src="funda sofa.jpg" alt="Funda para Sofá" class="lenceria-img"> <!-- Imagen del producto -->
+                <h3>Funda para Sofá</h3> <!-- Título del producto -->
+                <p>Protege tu sofá con nuestras fundas de alta calidad. Disponibles en varios tamaños y colores para adaptarse a tu mobiliario.</p> <!-- Descripción breve del producto -->
+                <a href="funda sofa.jpg" class="cta-button">Más Información</a> <!-- Botón de llamada a la acción -->
+            </div>
+
+            <!-- Tarjeta de producto 2: Cubre Muebles -->
+            <div class="lenceria-card">
+                <img src="cubre mueble.jpg" alt="Cubre Muebles" class="lenceria-img">
+                <h3>Cubre Muebles</h3>
+                <p>Ideal para mantener la apariencia de tus muebles. Resistente y fácil de lavar, con diversos diseños modernos.</p>
+                <a href="cubre mueble.jpg" class="cta-button">Más Información</a>
+            </div>
+
+            <!-- Tarjeta de producto 3: Fundas de Almohadón -->
+            <div class="lenceria-card">
+                <img src="funda almohadones.jpg" alt="Funda de Almohadón" class="lenceria-img">
+                <h3>Funda de Almohadón</h3>
+                <p>Decora y protege tus almohadones con nuestras fundas. Perfectas para todo tipo de estilo y con tejidos suaves al tacto.</p>
+                <a href="funda almohadones.jpg" class="cta-button">Más Información</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 Plataforma de Servicios. Todos los derechos reservados.</p> <!-- Información de derechos de autor -->
+    </footer>
+
+</body>
+</html>

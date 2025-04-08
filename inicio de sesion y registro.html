@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Usuarios</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>PLATAFORMA DE GESTIÓN DE USUARIOS Y SERVICIOS</h2>
+    <form id="loginForm" method="POST" action="login.php">
+      <input type="text" name="usuario" placeholder="Usuario" required>
+      <input type="password" name="contrasena" placeholder="Contraseña" required>
+      <label><input type="checkbox" name="recordar"> Recordar acceso</label>
+      <div class="buttons">
+        <button type="submit">Ingresar</button>
+        <button type="button" onclick="mostrarRegistro()">Registrar</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="registro-container hidden">
+    <form id="registroForm" method="POST" action="registro.php">
+      <input type="text" name="nombre" placeholder="Nombre completo" required>
+      <input type="email" name="email" placeholder="Correo electrónico" required>
+      <input type="password" name="contrasena" placeholder="Contraseña" required>
+      <select name="rol">
+        <option value="Visualizador">Visualizador</option>
+        <option value="Administrador">Administrador</option>
+      </select>
+      <div class="buttons">
+        <button type="submit">Registrar</button>
+        <button type="button" onclick="volverLogin()">Volver</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

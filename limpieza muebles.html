@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Definir el tipo de codificación de caracteres para la página -->
+    <meta charset="UTF-8">
+    
+    <!-- Permitir que la página sea responsiva (se ajuste a diferentes tamaños de pantalla) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título de la página que aparece en la pestaña del navegador -->
+    <title>Limpieza de Muebles</title>
+    
+    <!-- Enlace al archivo CSS externo para estilos (en este caso, se está utilizando tanto CSS interno como externo) -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Estilos internos de la página -->
+    <style>
+        /* Estilos básicos de la página */
+        body {
+            font-family: Arial, sans-serif; /* Fuente por defecto para la página */
+            margin: 0; /* Elimina el margen predeterminado */
+            padding: 0; /* Elimina el padding predeterminado */
+            background-color: #f4f4f4; /* Color de fondo claro para el cuerpo */
+        }
+
+        /* Estilos para la cabecera */
+        header {
+            background-color: #333; /* Fondo oscuro para la cabecera */
+            color: #fff; /* Texto blanco */
+            padding: 20px 0; /* Relleno arriba y abajo */
+            text-align: center; /* Centra el texto dentro de la cabecera */
+        }
+
+        /* Estilos para el menú de navegación dentro de la cabecera */
+        header nav ul {
+            list-style-type: none; /* Elimina los puntos de la lista */
+            padding: 0; /* Elimina el padding */
+        }
+
+        header nav ul li {
+            display: inline; /* Los elementos de la lista se muestran en línea */
+            margin: 0 15px; /* Espacio entre los elementos de la lista */
+        }
+
+        header nav ul li a {
+            color: white; /* Enlaces de color blanco */
+            text-decoration: none; /* Elimina el subrayado de los enlaces */
+            font-weight: bold; /* Pone los enlaces en negrita */
+        }
+
+        /* Sección de limpieza de muebles */
+        #cleaning-services {
+            padding: 50px 20px; /* Espaciado interno */
+            text-align: center; /* Centra el contenido dentro de la sección */
+            background-color: #fff; /* Fondo blanco */
+        }
+
+        #cleaning-services h2 {
+            font-size: 2.5em; /* Título grande */
+            margin-bottom: 20px; /* Espacio debajo del título */
+            color: #333; /* Color oscuro para el título */
+        }
+
+        /* Contenedor de los servicios de limpieza (disposición en filas y columnas) */
+        .cleaning-service-container {
+            display: flex; /* Utiliza Flexbox para distribuir los elementos */
+            justify-content: space-around; /* Distribuye el contenido con espacio entre los elementos */
+            flex-wrap: wrap; /* Permite que los elementos se acomoden en nuevas filas cuando sea necesario */
+            gap: 20px; /* Espacio entre los elementos */
+            margin-top: 30px; /* Espacio superior */
+        }
+
+        /* Estilos para cada tarjeta de servicio de limpieza */
+        .cleaning-service-card {
+            width: 30%; /* Cada tarjeta ocupa el 30% del ancho disponible */
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px; /* Bordes redondeados */
+            overflow: hidden; /* Oculta cualquier contenido que se desborde fuera de los bordes */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor de cada tarjeta */
+            transition: transform 0.3s ease-in-out; /* Transición suave al pasar el ratón */
+        }
+
+        /* Efecto de hover: al pasar el ratón, la tarjeta se desplaza hacia arriba */
+        .cleaning-service-card:hover {
+            transform: translateY(-10px); /* Mueve la tarjeta hacia arriba */
+        }
+
+        /* Estilos para las imágenes dentro de las tarjetas de servicio */
+        .cleaning-service-img {
+            width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+            height: 200px; /* Altura fija para las imágenes */
+            object-fit: cover; /* La imagen cubre todo el área de la tarjeta sin distorsionarse */
+            border-bottom: 2px solid #eee; /* Líneas sutiles debajo de la imagen */
+        }
+
+        /* Títulos dentro de las tarjetas de servicio */
+        .cleaning-service-card h3 {
+            font-size: 1.8em; /* Título grande */
+            margin: 15px 0; /* Espacio superior e inferior */
+            color: #333; /* Color oscuro para el texto */
+        }
+
+        /* Descripciones dentro de las tarjetas de servicio */
+        .cleaning-service-card p {
+            font-size: 1em; /* Tamaño de texto normal */
+            color: #666; /* Color gris para el texto */
+            padding: 0 15px; /* Espaciado en los laterales */
+            margin-bottom: 20px; /* Espacio en la parte inferior */
+        }
+
+        /* Estilos para el botón de llamada a la acción (CTA) */
+        .cta-button {
+            display: inline-block; /* Muestra el botón en línea */
+            background-color: #4CAF50; /* Fondo verde */
+            color: white; /* Texto blanco */
+            padding: 12px 25px; /* Relleno interno */
+            font-weight: bold; /* Pone el texto en negrita */
+            text-decoration: none; /* Elimina el subrayado */
+            border-radius: 5px; /* Bordes redondeados */
+            margin-bottom: 15px; /* Espacio debajo del botón */
+            transition: background-color 0.3s; /* Transición suave para el cambio de color */
+        }
+
+        /* Efecto de hover para el botón: cambio de color al pasar el ratón */
+        .cta-button:hover {
+            background-color: #45a049; /* Cambia a un verde más oscuro */
+        }
+
+        /* Estilos para el pie de página (footer) */
+        footer {
+            background-color: #333; /* Fondo oscuro */
+            color: white; /* Texto blanco */
+            padding: 10px 0; /* Relleno arriba y abajo */
+            text-align: center; /* Centra el texto */
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera de la página -->
+    <header>
+        <div class="logo">
+            <h1>Limpieza de Muebles</h1> <!-- Título principal de la página -->
+            <p>Servicios profesionales de limpieza para tus muebles</p> <!-- Descripción breve del servicio -->
+        </div>
+        <nav>
+            <ul>
+                <!-- Menú de navegación -->
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="testimonios.html">Testimonios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="inicio de sesion y registro.html">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido principal de la página -->
+    <main>
+        <!-- Sección de Servicios de Limpieza de Muebles -->
+        <section id="cleaning-services">
+            <h2>Servicios de Limpieza de Muebles</h2>
+            <div class="cleaning-service-container">
+                <!-- Primer servicio: Limpieza de Sofás y Sillones -->
+                <div class="cleaning-service-card">
+                    <img src="limpieza muebles.jpg" alt="Sofás y Sillones" class="cleaning-service-img"> <!-- Imagen del servicio -->
+                    <h3>Limpieza de Sofás y Sillones</h3> <!-- Título del servicio -->
+                    <p>Eliminamos manchas y polvo de tus sofás y sillones, garantizando que tus muebles luzcan como nuevos.</p> <!-- Descripción breve -->
+                    <a href="limpieza muebles.jpg" class="cta-button">Más Información</a> <!-- Botón de llamada a la acción -->
+                </div>
+
+                <!-- Segundo servicio: Limpieza de Sillas de Oficina -->
+                <div class="cleaning-service-card">
+                    <img src="limpieza sillas.jpg" alt="Sillas de Oficina" class="cleaning-service-img">
+                    <h3>Limpieza de Sillas de Oficina</h3>
+                    <p>Realizamos la limpieza profunda de sillas de oficina, eliminando suciedad y bacterias acumuladas.</p>
+                    <a href="limpieza sillas.jpg" class="cta-button">Más Información</a>
+                </div>
+
+                <!-- Tercer servicio: Limpieza de Camas y Colchones -->
+                <div class="cleaning-service-card">
+                    <img src="limpieza camas.jpg" alt="Camas y Colchones" class="cleaning-service-img">
+                    <h3>Limpieza de Camas y Colchones</h3>
+                    <p>Eliminamos ácaros, bacterias y manchas de colchones y camas para ofrecerte un descanso saludable.</p>
+                    <a href="limpieza camas.jpg" class="cta-button">Más Información</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 Limpieza de Muebles. Todos los derechos reservados.</p> <!-- Información de derechos de autor -->
+    </footer>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Meta información para la codificación de caracteres y la visualización en dispositivos móviles -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título de la página que aparece en la pestaña del navegador -->
+    <title>Plataforma de Servicios - Lencería y Mantenimiento de Muebles</title>
+
+    <style>
+        /* Estilos básicos para el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif; /* Establece la fuente de la página */
+            margin: 0; /* Elimina el margen predeterminado */
+            padding: 0; /* Elimina el padding predeterminado */
+            background-color: #f4f4f4; /* Establece el color de fondo */
+            display: flex;
+            flex-direction: column; /* Alinea los elementos en columna */
+            min-height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+            overflow-x: hidden; /* Evita desplazamientos horizontales */
+        }
+
+        html {
+            height: 100%; /* Asegura que el html ocupe toda la altura de la ventana */
+        }
+
+        /* Estilos del header (cabecera) */
+        header {
+            background-color: #333; /* Color de fondo oscuro */
+            color: #fff; /* Color del texto blanco */
+            padding: 20px 0; /* Espaciado interno (20px arriba y abajo) */
+            text-align: center; /* Centra el texto */
+            width: 100%; /* Asegura que el header ocupe todo el ancho */
+            box-sizing: border-box; /* Incluye padding en el ancho */
+        }
+
+        /* Estilos de la barra de navegación dentro del header */
+        header nav ul {
+            list-style-type: none; /* Elimina los puntos de la lista */
+            padding: 0; /* Elimina el padding de la lista */
+        }
+
+        header nav ul li {
+            display: inline; /* Los elementos de la lista se muestran en línea */
+            margin: 0 15px; /* Espacio de 15px entre cada enlace */
+        }
+
+        header nav ul li a {
+            color: white; /* Color blanco para los enlaces */
+            text-decoration: none; /* Elimina el subrayado de los enlaces */
+            font-weight: bold; /* Establece el texto en negrita */
+        }
+
+        /* Estilos del contenedor de inicio de sesión */
+        .login-container {
+            background: #fff; /* Fondo blanco para el contenedor */
+            padding: 20px; /* Espaciado interno de 20px */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor del contenedor */
+            width: 300px; /* Ancho fijo de 300px */
+            text-align: center; /* Centra el contenido dentro del contenedor */
+            margin-top: 50px; /* Espacio superior de 50px */
+            display: flex;
+            flex-direction: column; /* Organiza los elementos en columna */
+            justify-content: center; /* Centra verticalmente */
+            align-items: center; /* Centra horizontalmente */
+            margin-left: auto; /* Centrado horizontal */
+            margin-right: auto; /* Centrado horizontal */
+        }
+
+        input, select, button {
+            display: block; /* Asegura que los campos se muestren como bloques */
+            width: 100%; /* Los campos ocuparán todo el ancho */
+            margin: 10px 0; /* Margen superior e inferior de 10px */
+            padding: 10px; /* Relleno de 10px */
+            border-radius: 5px; /* Bordes redondeados */
+            border: 1px solid #ccc; /* Bordes grises */
+        }
+
+        .buttons {
+            display: flex; /* Usa Flexbox para distribuir los botones */
+            justify-content: space-between; /* Espacio entre los botones */
+        }
+
+        .hidden {
+            display: none; /* Elementos con esta clase estarán ocultos */
+        }
+
+        /* Estilos para la sección de servicios */
+        #services {
+            padding: 50px 20px; /* Espaciado de 50px arriba y 20px a los lados */
+            text-align: center; /* Centra el texto */
+            background-color: #f9f9f9; /* Fondo gris claro */
+        }
+
+        #services h2 {
+            font-size: 2.5em; /* Título grande */
+            margin-bottom: 20px; /* Espacio inferior de 20px */
+            color: #333; /* Color oscuro para el texto */
+        }
+
+        /* Estilos para el contenedor de las tarjetas de servicios */
+        .service-container {
+            display: flex;
+            justify-content: space-around; /* Distribuye el contenido de forma equidistante */
+            flex-wrap: wrap; /* Permite que las tarjetas se ajusten a varias filas */
+            gap: 20px; /* Espacio entre las tarjetas */
+            margin-top: 30px; /* Espacio superior de 30px */
+        }
+
+        /* Estilos para cada tarjeta de servicio */
+        .service-card {
+            width: 30%; /* Ancho del 30% de la pantalla */
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px; /* Bordes redondeados */
+            overflow: hidden; /* Oculta el contenido fuera de los bordes */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            transition: transform 0.3s ease-in-out; /* Transición suave cuando se hace hover */
+        }
+
+        /* Efecto de hover para las tarjetas de servicio */
+        .service-card:hover {
+            transform: translateY(-10px); /* Mueve la tarjeta hacia arriba */
+        }
+
+        /* Estilos para las imágenes dentro de las tarjetas de servicio */
+        .service-img {
+            width: 100%; /* Hace que la imagen ocupe todo el ancho */
+            height: 200px; /* Altura fija para las imágenes */
+            object-fit: cover; /* Hace que la imagen cubra el área sin distorsionarse */
+            border-bottom: 2px solid #eee; /* Línea sutil debajo de la imagen */
+        }
+
+        /* Estilos para los títulos dentro de las tarjetas de servicio */
+        .service-card h3 {
+            font-size: 1.8em; /* Título más grande */
+            margin: 15px 0; /* Espacio superior e inferior */
+            color: #333; /* Color oscuro para el texto */
+        }
+
+        /* Estilos para las descripciones dentro de las tarjetas */
+        .service-card p {
+            font-size: 1em; /* Tamaño de texto normal */
+            color: #666; /* Color gris para el texto */
+            padding: 0 15px; /* Relleno de 15px a los lados */
+            margin-bottom: 20px; /* Espacio inferior */
+        }
+
+        /* Estilos para los botones de acción (CTA) */
+        .cta-button {
+            display: inline-block;
+            background-color: #4CAF50; /* Fondo verde */
+            color: white; /* Color blanco para el texto */
+            padding: 12px 25px; /* Espaciado interno */
+            font-weight: bold; /* Texto en negrita */
+            text-decoration: none; /* Elimina el subrayado */
+            border-radius: 5px; /* Bordes redondeados */
+            margin-bottom: 15px; /* Espacio inferior */
+            transition: background-color 0.3s; /* Transición suave en el cambio de color */
+        }
+
+        /* Estilos para el hover del botón CTA */
+        .cta-button:hover {
+            background-color: #45a049; /* Cambio a un verde más oscuro */
+        }
+
+        /* Estilos para la sección de testimonios */
+        #testimonials {
+            padding: 40px 20px; /* Espaciado interno */
+            background-color: #f0f0f0; /* Fondo gris claro */
+            text-align: center; /* Centra el texto */
+        }
+
+        /* Estilos para cada testimonio */
+        .testimonial {
+            background-color: white; /* Fondo blanco para cada testimonio */
+            margin: 15px auto; /* Margen automático para centrar */
+            padding: 20px; /* Relleno interno */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            width: 80%; /* Ancho del 80% */
+            max-width: 600px; /* Ancho máximo de 600px */
+            font-style: italic; /* Texto en cursiva */
+        }
+
+        /* Estilos para el texto del testimonio */
+        .testimonial p {
+            font-size: 1.2em; /* Tamaño de fuente más grande */
+            color: #333; /* Color oscuro para el texto */
+        }
+
+        /* Estilos para la llamada a la acción (CTA) */
+        #cta {
+            background-color: #4CAF50; /* Fondo verde */
+            color: white; /* Color blanco para el texto */
+            text-align: center; /* Centra el texto */
+            padding: 30px 0; /* Relleno interno */
+        }
+
+        /* Estilos para el título de la llamada a la acción */
+        #cta h2 {
+            font-size: 2.5em; /* Título grande */
+            margin-bottom: 15px; /* Espacio inferior */
+        }
+
+        /* Estilos para el texto dentro de la llamada a la acción */
+        #cta p {
+            font-size: 1.2em; /* Tamaño de texto mayor */
+        }
+
+        /* Estilos para el botón dentro de la llamada a la acción */
+        #cta .cta-button {
+            font-size: 1.2em; /* Tamaño de fuente mayor */
+            padding: 15px 30px; /* Relleno más grande */
+        }
+
+        /* Estilos para el footer (pie de página) */
+        footer {
+            background-color: #333; /* Fondo oscuro */
+            color: white; /* Color blanco para el texto */
+            padding: 10px 0; /* Espaciado superior e inferior */
+            text-align: center; /* Centra el texto */
+            margin-top: auto; /* Empuja el footer hacia el fondo */
+            width: 100%; /* Asegura que el footer ocupe todo el ancho */
+        }
+
+        /* Asegura que la página sea desplazable */
+        main {
+            flex-grow: 1; /* Hace que el contenido principal ocupe el espacio restante */
+            overflow-y: auto; /* Permite desplazamiento vertical */
+            padding-bottom: 50px; /* Añade espacio para que el footer no se solape */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (Cabecera) -->
+    <header>
+        <div class="logo">
+            <h1>Plataforma de Servicios</h1>
+            <p>Conoce nuestros servicios exclusivos y mucho más</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="testimonios.html">Testimonios</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Servicios -->
+    <section id="services">
+        <h2>Servicios</h2>
+        <div class="service-container">
+            <!-- Lencería para muebles -->
+            <div class="service-card">
+                <img src="Lenceria muebles.jpg" alt="Lencería para Muebles" class="service-img">
+                <h3>Lencería para Muebles</h3>
+                <p>Ofrecemos una gran variedad de fundas y protectores para mantener tus muebles siempre nuevos y en excelente estado.</p>
+                <a href="lenceria muebles.html" class="cta-button">Más Información</a>
+            </div>
+
+            <!-- Limpieza de muebles -->
+            <div class="service-card">
+                <img src="limpieza muebles.jpg" alt="Limpieza de Muebles" class="service-img">
+                <h3>Limpieza de Muebles</h3>
+                <p>Brindamos servicios profesionales de limpieza y mantenimiento para tus muebles, garantizando la higiene y durabilidad.</p>
+                <a href="limpieza muebles.html" class="cta-button">Más Información</a>
+            </div>
+
+            <!-- Arreglos de Muebles -->
+            <div class="service-card">
+                <img src="arreglar mueble1.jpg" alt="Arreglos de Muebles" class="service-img">
+                <h3>Arreglos de Muebles</h3>
+                <p>Reparamos tus muebles dañados y restauramos su aspecto original con técnicas profesionales y materiales de alta calidad.</p>
+                <a href="arreglo muebles.html" class="cta-button">Más Información</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonials">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div class="testimonial">
+            <p>"Excelente servicio, muy recomendable!" - Juan Pérez</p>
+        </div>
+        <div class="testimonial">
+            <p>"Un cambio radical en mi vida gracias a este servicio." - Ana López</p>
+        </div>
+    </section>
+
+    <!-- Llamado a la acción -->
+    <section id="cta">
+        <h2>¡Regístrate ahora!</h2>
+        <p>Comienza a disfrutar de nuestros servicios hoy mismo.</p>
+        <a href="inicio de sesion y registro.html" class="cta-button">Regístrate</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Plataforma de Servicios. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
